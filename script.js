@@ -1,6 +1,8 @@
+//  Create variables for the score 
 let playerScore = 0;
 let computerScore = 0;
 
+// Get the random computer choice between Rock, Paper, Scissors
 function getComputerChoice() {
     let array = [
         'Rock',
@@ -12,6 +14,8 @@ function getComputerChoice() {
     
     return array[randomSelection]
 }
+
+// Decide winner for 1 round
 
 function playRound(playerSelection, computerSelection) {
     
@@ -44,9 +48,11 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+
 function gameCompleted() {
  for (let i = 0; i <= 5; i++){
     if (i < 5) {
+        // Run the computer choice, playerselection(prompt), playround and show the score in realtime
         const computerSelection = getComputerChoice();
         const playerSelection = prompt('Rock, Paper, Scissors');
         let game = playRound(playerSelection, computerSelection);
@@ -54,6 +60,7 @@ function gameCompleted() {
         console.log(`player score is ${playerScore}`);
         console.log(`Computer score is ${computerScore}`);
          } 
+         //When i gets to 5 run the else to decide the winner
     else {
         if (playerScore > computerScore) {
             console.log('The Humanity has won')
