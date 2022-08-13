@@ -44,7 +44,7 @@ function playRound(playerSelection, computerSelection) {
         return `The player won this round`;
 
     } else {
-        return 'Multa Muie';
+        return "This round it's a tie! ";
     }
 }
 
