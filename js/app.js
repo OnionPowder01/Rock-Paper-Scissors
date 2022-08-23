@@ -1,102 +1,35 @@
-const rock = document.getElementById("rockBtn");
-const paper = document.getElementById("paperBtn");
-const scissors = document.getElementById("scissorsBtn");
+const choices = document.querySelectorAll('.choice');
+const score = document.getElementById('score')
+const result = document.getElementById('result')
+const restart = document.getElementById('restart')
+const modal = document.querySelector('.modal');
 
-
-// Get the random computer choice between Rock, Paper, Scissors
-function getComputerChoice() {
-    let array = [
-        'Rock',
-        'Paper',
-        'Scissors'
-    ];
-    
-    let randomSelection = Math.floor(Math.random()* array.length);
-    
-    return array[randomSelection]
+const scoreboard = {
+    player: 0,
+    computer: 0,
 }
 
-// Decide winner for 1 round
-
-function playRound(playerSelection, computerSelection) {
+// Play game
+function play(e) {
+    restart.style.display = 'inline-block';
+    const playerChoice = (e.target.id);
+    const computerChoice = getComputerChoice();
     
-    if (playerSelection === 'Rock' && computerSelection === 'Paper') {
-        computerScore += 1;
-        return `The computer won this round ` ;
+    console.log(playerChoice, computerChoice);
+}
 
-    } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
-        playerScore += 1;
-        return `The player won this round ` ;
-
-    } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
-        computerScore += 1;
-        return `The computer won this round`;
-
-    } else if (playerSelection === 'Paper' && computerSelection === "Rock") {
-        playerScore += 1;
-        return `The player won this round`;
-
-    } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
-        computerScore += 1;
-        return `The computer won this round`;
-
-    } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
-        playerScore +=1;
-        return `The player won this round`;
-
-    } else {
-        return "This round it's a tie! ";
+// Get computer choice
+function getComputerChoice() {
+    const rand = Math.random();
+    if(rand < 0.34) {
+        return 'rock';
+    }else if(rand <= 0.63) {
+        return 'paper';
+    }else {
+        return 'scissors'
     }
 }
 
+// Event Listeners
+choices.forEach(choice => choice.addEventListener('click', play));
 
-function gameCompleted() {
- 
-        // Run the computer choice, playerselection(prompt), playround and show the score in realtime
-        const computerSelection = getComputerChoice();
-        // const playerSelection = prompt('Rock, Paper, Scissors');
-        let game = playRound(playerSelection, computerSelection);
-        console.log(game);
-        console.log(`player score is ${playerScore}`);
-        console.log(`Computer score is ${computerScore}`);
-         
-         //When i gets to 5 run the else to decide the winner
-   
-       
-        }
-    
-    
-    
-let playerScore = 0;
-let computerScore = 0;  
-
-const btns = document.querySelectorAll('.button');
-btns.forEach(button => button.addEventListener('click', playRound));
-btns.addEventListener('click', gameCompleted);
-
-
-
-
-
-/* function gameCompleted() {
-    for (let i = 0; i <= 5; i++){
-       if (i < 5) {
-           // Run the computer choice, playerselection(prompt), playround and show the score in realtime
-           const computerSelection = getComputerChoice();
-           const playerSelection = prompt('Rock, Paper, Scissors');
-           let game = playRound(playerSelection, computerSelection);
-           console.log(game);
-           console.log(`player score is ${playerScore}`);
-           console.log(`Computer score is ${computerScore}`);
-            } 
-            //When i gets to 5 run the else to decide the winner
-       else {
-           if (playerScore > computerScore) {
-               console.log('The Humanity has won')
-           } else {
-               console.log('Terminator is coming')
-           }
-       }  
-          }
-       }
-    */
