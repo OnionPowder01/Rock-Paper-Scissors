@@ -7,7 +7,7 @@ JavaScript project in the curriculum of The Odin Project.
 
 
 <p align="center">
-<img src="(https://user-images.githubusercontent.com/106592392/187507478-b4f20131-ba03-476b-a228-3645f533aab0.gif" alt="animated" />
+<img src="https://user-images.githubusercontent.com/106592392/187507478-b4f20131-ba03-476b-a228-3645f533aab0.gif" alt="animated" />
 </p>
 
 
